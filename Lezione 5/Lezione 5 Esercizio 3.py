@@ -34,15 +34,20 @@ class Ristorante:
 
 
     def stato_apertura(self):
-        return self.aperto
+        if self.aperto: print("Il ristorante " + self.nome + " è aperto")
+        else: print("Il ristorante " + self.nome + " è chiuso")
     
     def apri(self):
         if self.aperto: print("Ristorante già aperto")
-        else: self.aperto == True
+        else:
+            self.aperto == True 
+            print("Il ristorante " + self.nome + " sta aprendo")
 
     def chiudi(self):
         if self.aperto: print("Ristorante già chiuso")
-        else: self.aperto == False
+        else:
+            self.aperto == False
+            print("Il ristorante " + self.nome + " sta chiudendo")
 
     def aggiungi_piatto(self, nome, prezzo):
         ## suppongo inserire di nuovo un piatto con lo stesso nome equivalga a sovrascriverlo/aggiornarlo
