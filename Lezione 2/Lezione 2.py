@@ -30,7 +30,7 @@ l'unica cosa scritta in maiuscolo sono nomi dei moduli e nomi delle classi
 regole fondamentali: asincronia(o astrazione) ereditarietà / polimorfismo / incapsulamento
 print(1 + 2)
 astrazione perché non abbiamo definito quella funzione, ma esiste, è nativa, aldifuori del contesto
-ereditarietà 
+ereditarietà gli oggetti traggono comportamenti da altri oggetti affini
 polimorfismo l'operatore + funziona con molte varianti, funziona con str, int, double
 incapsulamento con le parentesi
 
