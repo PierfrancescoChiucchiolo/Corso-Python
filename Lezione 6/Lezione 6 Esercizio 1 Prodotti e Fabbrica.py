@@ -21,6 +21,7 @@ resi_prodotto: aumenta la quantità di un prodotto in inventario
 '''
 
 
+
 class Prodotto():
     def __init__(self, nome, costo, prezzo):
         self.nome = nome
@@ -37,28 +38,47 @@ class Prodotto():
 class Biglia(Prodotto):
     def __init__(self, nome, costo, prezzo, colore):
         super().__init__(nome, costo, prezzo)
-        self.colore = colore
+        self._colore_ = colore
+
+    def _get_colore(self):
+        return self._colore_
+    
+    def set_colore(self, colore2):
+        self._colore = colore2
 
     def descrivi(self):
-        descrizione = super().descrivi() + " ed è del colore: " + self.colore 
+        descrizione = super().descrivi() + " ed è del colore: " + self._colore_
         return descrizione
 
 class Biglietto(Prodotto):
     def __init__(self, nome, costo, prezzo, titolo):
         super().__init__(nome, costo, prezzo)
-        self.titolo = titolo
+        self._titolo_ = titolo
 
+    def get_titolo(self):
+        return self._titolo_
+    
+    def set_titolo(self, titolo2):
+        self._titolo_ = titolo2
+    
     def descrivi(self):
-        descrizione = super().descrivi() + " ambito di utilizzo: " + self.titolo
+        descrizione = super().descrivi() + " ambito di utilizzo: " + self._titolo_
         return descrizione
+        
 
 class Bottiglia(Prodotto):
     def __init__(self, nome, costo, prezzo, capacita):
         super().__init__(nome, costo, prezzo)
-        self.capacita = capacita
+        self._capacita_ = capacita
+
+    def get_capacita(self):
+        return self._capacita_
+    
+    def set_colore(self, capacita2):
+        self._capacita_ = capacita2
 
     def descrivi(self):
-        descrizione = super().descrivi() + " ha capacità pari a: " + self.capacita
+        descrizione = super().descrivi() + " ha capacità pari a: " + self._capacita_
         return descrizione
 
 class Fabbrica():
