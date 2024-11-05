@@ -27,9 +27,10 @@ non vuota).
 '''
 
 class ContoBancario():
-    def __init__(self, titolare, saldo):
+    def __init__(self, titolare, saldo, IBAN):
         self._titolare_ = titolare
         self._saldo_ = saldo
+        self.__iban__ = IBAN
     
     def is_valid(self):
         return(self._titolare_ != "" and self._saldo_ >= 0)
@@ -42,12 +43,19 @@ class ContoBancario():
         if saldo < 0: self._saldo_ = saldo
         else: print("Saldo non valido")
 
+    def __set_iban__(self, IBAN):
+        ## faccio finta l'iban sia valido
+        self.__iban__ = IBAN
+
     def get_titolare(self):
         return self._titolare_
     
     def get_saldo(self):
         return self._saldo_
     
+    def __get_iban__(self):
+        return self.__iban__
+
     def basta(self, importo):
         return self._saldo_ >= importo
     
@@ -66,7 +74,7 @@ class ContoBancario():
         else: print ("Importo troppo elevato")
 
 
-conto1 = ContoBancario("Giovanni Giovannelli", 500)
+conto1 = ContoBancario("Giovanni Giovannelli", 500, "IT1234567890")
 print(conto1.get_titolare)
 print(conto1.get_saldo)
 conto1.preleva(1000)
@@ -75,5 +83,12 @@ print(conto1.get_saldo)
 conto1.deposita(500)
 print(conto1.get_saldo)
 
+print(conto1.basta(500))
+print(conto1.basta(1000))
+print(conto1.basta(1500))
+
 conto1.preleva(1000)
 print(conto1.get_saldo)
+
+
+print(conto1.__get_iban__)
