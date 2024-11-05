@@ -82,7 +82,7 @@ class Fabbrica():
 
         ## torna utile avere un metodo di appoggio per leggibilità codice e per riutilizzabilità in altri metodi
     def get_quantita_prodotto(self, nome_prodotto):
-        if nome_prodotto in self.inventario():
+        if nome_prodotto in self.inventario.keys():
             return self.inventario.get(nome_prodotto)[1]
         else:
             print("Prodotto " + nome_prodotto + " non presente")
@@ -131,8 +131,8 @@ class Fabbrica():
         stringa = ""
         for key in self.inventario.keys():
             prodotto = self.inventario.get(key)[0]
-            descrizione = prodotto.descrivi()
-            stringa += str(key) + " " + descrizione + " "
+            quantita = self.get_quantita_prodotto(prodotto.nome)
+            stringa += str(key) + " " + prodotto.descrivi() + " totale in stock: " + str(quantita)
         return stringa
 
 
@@ -149,7 +149,7 @@ print(prodotto2.profitto())
 print(prodotto3.profitto())
 
 fabbrica1 = Fabbrica("B&B&B", "Benedetto Baglioni", "123456 partita iva", "B Incorporated")
-fabbrica1.descrivi()
+print(fabbrica1.descrivi())
 
 fabbrica1.aggiungi_prodotto(prodotto1, 50)
 fabbrica1.aggiungi_prodotto(prodotto2, 2000)
