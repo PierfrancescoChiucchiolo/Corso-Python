@@ -87,21 +87,32 @@ print(conto1.get_saldo)
 conto1.preleva(1000)
 print(conto1.get_saldo)
 
+print(" prima dei test ")
 conto1.deposita(500)
 print(conto1.get_saldo)
+print(" accesso con get_saldo ")
+
 
 print(conto1.basta(500))
 print(conto1.basta(1000))
 print(conto1.basta(1500))
 
+print(" preleviamo e controlliamo prima get saldo e poi saldo ")
 conto1.preleva(1000)
 print(conto1.get_saldo)
+print(conto1._saldo_)
 
-
+print(" prendi iban, modifichiamo l'iban, prendi iban")
 print(conto1.__get_iban__)
 conto1.__cambia_iban__("IT1122334455")
 print(conto1.__get_iban__)
 
-ContoBancario.__set_iban__(conto1, "IT1231231231")
-print(conto1.__get_iban__)
+print("  prendi iban, __set_iban__, prendi iban, usa __set_iban__ dalla classe stessa, check __iban__, poi __get_iban__")
 print(conto1.__iban__)
+conto1.__set_iban__("IT1231231231")
+print(conto1.__iban__)
+ContoBancario.__set_iban__(conto1, "IT1234512345")
+print(conto1.__iban__)
+print(conto1.__get_iban__)
+
+
