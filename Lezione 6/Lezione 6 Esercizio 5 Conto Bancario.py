@@ -24,6 +24,8 @@ Aggiungere metodi "getter" e "setter" per gli attributi come _titolare,
 applicando validazioni appropriate (e.g., il titolare deve essere una stringa
 non vuota).
 
+extra: metodo privato e usarlo dentro l'oggetto, vedendo che non viene accesso
+
 '''
 
 class ContoBancario():
@@ -44,7 +46,7 @@ class ContoBancario():
         else: print("Saldo non valido")
 
     def __set_iban__(self, IBAN):
-        ## faccio finta l'iban sia valido
+        ## faccio finta l'iban sia sempre valido
         self.__iban__ = IBAN
 
     def get_titolare(self):
@@ -74,6 +76,11 @@ class ContoBancario():
         else: print ("Importo troppo elevato")
 
 
+    def __cambia_iban__(self, IBAN):
+        if self.__get_iban__ != IBAN:
+            self.__set_iban__ == IBAN
+
+
 conto1 = ContoBancario("Giovanni Giovannelli", 500, "IT1234567890")
 print(conto1.get_titolare)
 print(conto1.get_saldo)
@@ -92,3 +99,9 @@ print(conto1.get_saldo)
 
 
 print(conto1.__get_iban__)
+conto1.__cambia_iban__("IT1122334455")
+print(conto1.__get_iban__)
+
+ContoBancario.__set_iban__(conto1, "IT1231231231")
+print(conto1.__get_iban__)
+print(conto1.__iban__)
