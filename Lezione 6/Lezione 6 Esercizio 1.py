@@ -33,6 +33,33 @@ class Prodotto():
     def descrivi(self):
         stringa = "Il prodotto si chiama " + self.nome + ", ha un costo di produzione pari a: " + str(self.costo) + " e si vende a: " + str(self.prezzo)
         return stringa    
+    
+class Biglia(Prodotto):
+    def __init__(self, nome, costo, prezzo, colore):
+        super().__init__(nome, costo, prezzo)
+        self.colore = colore
+
+    def descrivi(self):
+        descrizione = super().descrivi() + " ed è del colore: " + self.colore 
+        return descrizione
+
+class Biglietto(Prodotto):
+    def __init__(self, nome, costo, prezzo, titolo):
+        super().__init__(nome, costo, prezzo)
+        self.titolo = titolo
+
+    def descrivi(self):
+        descrizione = super().descrivi() + " ambito di utilizzo: " + self.titolo
+        return descrizione
+
+class Bottiglia(Prodotto):
+    def __init__(self, nome, costo, prezzo, capacita):
+        super().__init__(nome, costo, prezzo)
+        self.capacita = capacita
+
+    def descrivi(self):
+        descrizione = super().descrivi() + " ha capacità pari a: " + self.capacita
+        return descrizione
 
 class Fabbrica():
     def __init__(self, nome, titolare, p_iva, gruppo = "Senza Gruppo"):
@@ -109,9 +136,9 @@ class Fabbrica():
         return stringa
 
 
-prodotto1 = Prodotto("Biglie", 1, 2)
-prodotto2 = Prodotto("Biglietti", 3, 5)
-prodotto3 = Prodotto("Bottiglie", 1, 3)
+prodotto1 = Biglia("Biglie", 1, 2, "Rosso")
+prodotto2 = Biglietto("Biglietti", 3, 5, "Trasporto Pubblico Locale")
+prodotto3 = Bottiglia("Bottiglie", 1, 3, "1 Litro")
 
 print(prodotto1.descrivi())
 print(prodotto2.descrivi())
