@@ -157,7 +157,13 @@ fabbrica1.aggiungi_prodotto(prodotto3, 1000)
 
 print(fabbrica1.get_inventario())
 
+print("Attualmente ci sono : " + str(fabbrica1.get_quantita_prodotto("Biglie")) + " Biglie")
+print("Sto vendendo 10 Biglie")
+fabbrica1.vendi_prodotto("Biglie", 10)
+print("Attualmente ci sono : " + str(fabbrica1.get_quantita_prodotto("Biglie")) + " Biglie")
 
-
+print("Sto facendo il reso di 5 Biglie")
+fabbrica1.resi_prodotto("Biglie", 5)
+print("Attualmente ci sono : " + str(fabbrica1.get_quantita_prodotto("Biglie")) + " Biglie")
 
 
