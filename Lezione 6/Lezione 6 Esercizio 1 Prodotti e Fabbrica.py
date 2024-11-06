@@ -149,16 +149,17 @@ class Fabbrica():
         
 
     def get_inventario(self):
-        stringa = ""
+        lista = []
         for key in self.inventario.keys():
             prodotto = self.inventario.get(key)[0]
             quantita = self.get_quantita_prodotto(prodotto.nome)
-            stringa += str(key) + ": " + prodotto.descrivi() + " totale in stock: " + str(quantita) + " END"
-        return stringa.split("END")
+            stringa = str(key) + ": " + prodotto.descrivi() + " totale in stock: " + str(quantita)
+            lista.append(stringa)
+        return lista
     
     def print_inventario(self):
-        stringa = self.get_inventario()
-        for linea in stringa:
+        lista = self.get_inventario()
+        for linea in lista:
             print(linea)
 
 
