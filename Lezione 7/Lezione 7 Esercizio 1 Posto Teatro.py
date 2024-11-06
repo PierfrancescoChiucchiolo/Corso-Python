@@ -74,6 +74,10 @@ class PostoStandard(Posto):
     def get_online(self):
         return self.online
     
+    def prenota(self, online):
+        super().prenota()
+        self.online = online
+    
     def dettagli(self):
         stringa = super().dettagli()
         if self.get_online(): stringa + " e il posto è stato prenotato online"
@@ -121,7 +125,7 @@ class Teatro():
         elif (numero, fila) in self.posti.keys(): return False
         else: return True 
     
-    def prenota(self, numero, fila, online = 0):
+    def prenota_standard(self, numero, fila, online = 0):
         if self.check_prenotabile(numero, fila):
 
             standard = PostoStandard(numero, fila, online)
@@ -129,7 +133,7 @@ class Teatro():
             nuovo_posto = {(numero, fila) : standard}
             self.posti.update(nuovo_posto)
 
-    def prenota(self, numero, fila, servizi = ""):
+    def prenota_vip(self, numero, fila, servizi = ""):
         if self.check_prenotabile(numero, fila):
 
             vip = PostoVIP(numero, fila, servizi)
@@ -138,7 +142,6 @@ class Teatro():
             self.posti.update(nuovo_posto) 
 
     def stampa_occupati(self):
-        print(self.posti.items())
         for posto in self.posti.values():
             print(posto.dettagli())
 
@@ -146,14 +149,19 @@ class Teatro():
 teatro1 = Teatro("Teatro delle Vittorie", "Parco della Vittoria 1", 2, 2)
 
 print(teatro1.check_capienza())
-teatro1.prenota(1, 1)
-teatro1.prenota(2, 2)
+teatro1.prenota_standard(1, 1, 0)
+teatro1.prenota_vip(2, 2, "Nessuno")
 teatro1.stampa_occupati()
+print(teatro1.check_capienza())
+
 
 print("provo a prenotare 1, 1 già occupato")
-teatro1.prenota(1, 1)
+teatro1.prenota_standard(1, 1, 0)
 
 print("provo a prenotare altri 2 posti alla capienza di 4 posti")
-teatro1.prenota(2, 1, 1)
-teatro1.prenota(1, 2, ["Poltrona massaggiante"])
+teatro1.prenota_standard(2, 1, 1)
+teatro1.prenota_vip(1, 2, "Poltrona massaggiante")
+print(teatro1.check_capienza())
+
+teatro1.stampa_occupati()
 
