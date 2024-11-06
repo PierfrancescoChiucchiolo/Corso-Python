@@ -1,5 +1,12 @@
 '''
 
+Gruppo formato da:
+Daniele Florio
+Pier Carlo Ciraselli
+Pierfrancesco Chiucchiolo
+
+
+
 creare una classe base Veicolo con attributi comuni a tutti i veicoli e metodi per operazioni comuni come l'accensione
 e lo spegnimento. Derivando questa classe, creeranno specifiche classi per Auto, Furgone e Motocicletta, aggiungendo
 caratteristiche uniche per ciascun tipo di veicolo. Infine, dovranno implementare una classe GestoreParcoVeicoli per
