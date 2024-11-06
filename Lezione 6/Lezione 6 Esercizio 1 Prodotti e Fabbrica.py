@@ -20,7 +20,8 @@ resi_prodotto: aumenta la quantità di un prodotto in inventario
 
 '''
 
-
+def descrivi_prodotto(prodotto):
+    return prodotto.descrivi()
 
 class Prodotto():
     def __init__(self, nome, costo, prezzo):
@@ -152,8 +153,13 @@ class Fabbrica():
         for key in self.inventario.keys():
             prodotto = self.inventario.get(key)[0]
             quantita = self.get_quantita_prodotto(prodotto.nome)
-            stringa += str(key) + " " + prodotto.descrivi() + " totale in stock: " + str(quantita)
-        return stringa
+            stringa += str(key) + ": " + prodotto.descrivi() + " totale in stock: " + str(quantita) + " END"
+        return stringa.split("END")
+    
+    def print_inventario(self):
+        stringa = self.get_inventario()
+        for linea in stringa:
+            print(linea)
 
 
 prodotto1 = Biglia("Biglie", 1, 2, "Rosso")
@@ -175,7 +181,7 @@ fabbrica1.aggiungi_prodotto(prodotto1, 50)
 fabbrica1.aggiungi_prodotto(prodotto2, 2000)
 fabbrica1.aggiungi_prodotto(prodotto3, 1000)
 
-print(fabbrica1.get_inventario())
+fabbrica1.print_inventario()
 
 print("Attualmente ci sono : " + str(fabbrica1.get_quantita_prodotto("Biglie")) + " Biglie")
 print("Sto vendendo 10 Biglie")
@@ -186,4 +192,4 @@ print("Sto facendo il reso di 5 Biglie")
 fabbrica1.resi_prodotto("Biglie", 5)
 print("Attualmente ci sono : " + str(fabbrica1.get_quantita_prodotto("Biglie")) + " Biglie")
 
-
+print(descrivi_prodotto(prodotto1))
