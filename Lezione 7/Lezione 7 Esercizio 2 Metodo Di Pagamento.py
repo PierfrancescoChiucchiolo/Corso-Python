@@ -90,18 +90,18 @@ cdc1 = CDC("IT1234567890", 5000, "Gianni Morandi")
 paypal1 = Paypal("IT1122334455", 1000, "GianMorand")
 bonifico1 = Bonifico("IT1231231231", 500, "Gianni Morandi")
 
-print(cdc1.get_saldo)
-print(paypal1.get_saldo)
-print(bonifico1.get_saldo)
+print(cdc1.get_saldo())
+print(paypal1.get_saldo())
+print(bonifico1.get_saldo())
 
 gestore1.paga(cdc1, paypal1, 500)
 
-print(cdc1.get_saldo)
-print(paypal1.get_saldo)
-print(bonifico1.get_saldo)
+print(cdc1.get_saldo())
+print(paypal1.get_saldo())
+print(bonifico1.get_saldo())
 
 gestore1.paga(cdc1, bonifico1, 500)
 
-print(cdc1.get_saldo)
-print(paypal1.get_saldo)
-print(bonifico1.get_saldo)
+print(cdc1.get_saldo())
+print(paypal1.get_saldo())
+print(bonifico1.get_saldo())
