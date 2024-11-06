@@ -39,36 +39,36 @@ metodo: paga(metodo di pagamento, importo)
 
 
 class mdp():
-    def __init__(iban, saldo):
+    def __init__(self, iban, saldo):
         self._iban_ = iban
         self._saldo_ = saldo
 
-    def __get_iban__(self):
+    def get_iban(self):
         return self._iban_
     
-    def __get_saldo__(self):
+    def get_saldo(self):
         return self._saldo_
     
-    def __set_saldo__(self, importo):
+    def set_saldo(self, importo):
         self._saldo_ = importo
 
 
 
 
 class CDC(mdp):
-    def __init__(iban, saldo, titolare):
+    def __init__(self, iban, saldo, titolare):
         super().__init__(iban, saldo)
         self.titolare = titolare
 
 
 class Paypal(mdp):
-    def __init__(iban, saldo, username):
+    def __init__(self, iban, saldo, username):
         super().__init__(iban, saldo)
         self.username = username
 
 
 class Bonifico(mdp):
-    def __init__(iban, saldo, titolare):
+    def __init__(self, iban, saldo, titolare):
         super().__init__(iban, saldo)
         self.titolare = titolare
 
@@ -79,29 +79,29 @@ class Gestore_Pagamenti():
 
 
     def paga(self, origine, destinazione, importo):
-        if origine.__get_saldo__ >= importo:
-            origine.__set_saldo__(origine.__get_saldo__() - importo)
-            destinazione.__set_saldo__(destinazione.__get_saldo__() + importo)
+        if origine.get_saldo() >= importo:
+            origine.set_saldo(origine.get_saldo() - importo)
+            destinazione.set_saldo(destinazione.get_saldo() + importo)
 
 
 gestore1 = Gestore_Pagamenti("MyTransfer")
 
-cdc1 = CDC(5000, "Gianni Morandi")
-paypal1 = Paypal(1000, "GianMorand")
-bonifico1 = Bonifico(500, "Gianni Morandi")
+cdc1 = CDC("IT1234567890", 5000, "Gianni Morandi")
+paypal1 = Paypal("IT1122334455", 1000, "GianMorand")
+bonifico1 = Bonifico("IT1231231231", 500, "Gianni Morandi")
 
-print(cdc1.__get_saldo__)
-print(paypal1.__get_saldo__)
-print(bonifico1.__get_saldo__)
+print(cdc1.get_saldo)
+print(paypal1.get_saldo)
+print(bonifico1.get_saldo)
 
 gestore1.paga(cdc1, paypal1, 500)
 
-print(cdc1.__get_saldo__)
-print(paypal1.__get_saldo__)
-print(bonifico1.__get_saldo__)
+print(cdc1.get_saldo)
+print(paypal1.get_saldo)
+print(bonifico1.get_saldo)
 
 gestore1.paga(cdc1, bonifico1, 500)
 
-print(cdc1.__get_saldo__)
-print(paypal1.__get_saldo__)
-print(bonifico1.__get_saldo__)
+print(cdc1.get_saldo)
+print(paypal1.get_saldo)
+print(bonifico1.get_saldo)
