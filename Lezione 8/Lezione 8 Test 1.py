@@ -42,7 +42,7 @@ print(lista)
 ## Richiede: Che ogni valore o aggregazione dell'oggetto siano incapsulati 
 
 
-'''
+
 inputbase = input("Dammi un elenco di valori, numeri o parole, li aggiungerò ad una collezione, stop per uscire")
 dizionario = {}
 
@@ -50,7 +50,7 @@ while inputbase != "stop":
     for valore in inputbase.split():
         newdict = {}
         if valore not in dizionario.keys():
-            newdict = {valore : 0}
+            newdict = {valore : 1}
         else:
             occorrenze = dizionario.get(valore)
             newdict = {valore : occorrenze + 1}
@@ -59,7 +59,7 @@ while inputbase != "stop":
 
     inputbase = input("Dammi un elenco di valori, numeri o parole, li aggiungerò ad una collezione, stop per uscire")
 
-'''
+
 
 
 ## elif
@@ -114,7 +114,7 @@ while inputbase != "stop":
 # ogni autofficina deve avere disponibile una funzione per riparare un tipo specifico di Veicolo.
 # Richiede: Classe autofficine (min 2 figli), Classe Veicolo (min 2 figli ), Classe App_Riparazioni (gestore)
 
-class Veicolo():
+'''class Veicolo():
     def __init__(self, targa):
         self.targa = targa
 
@@ -175,7 +175,7 @@ off_moto1 = OfficinaMoto("Motoriparo")
 riparatore1 = Riparatore("ArtAttack", "Via Dell'Attacco D'Arte 10", "Giovanni Muciaccia")
 riparatore1.ripara(off_auto1, auto1, "Mi si è rotto il sedile")
 riparatore1.ripara(off_moto1, moto1, "Mi si è rotto il sellino")
-
+'''
 
 
 
@@ -196,6 +196,9 @@ riparatore1.ripara(off_moto1, moto1, "Mi si è rotto il sellino")
 # partendo dalla classe base PROFESSORE andare a creare varie classi astratte che definiscono
 # la specifica di[ Materia e numeroStudenti ] e a partire dalla classe studente bisogna andare a riempire l'aula
 # con il giusto numero di oggetti.      Richiede:  Classe Professore, Classi astratte(Almeno due), Classe studente/aula 
+
+
+
 
 
 ## avendo studiato molto computer science in generale non conoscevo i decoratori, ho avuto modo di apprenderli un po', il resto era già ben noto da altri linguaggi
