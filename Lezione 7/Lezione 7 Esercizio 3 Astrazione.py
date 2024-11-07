@@ -57,6 +57,10 @@ importa
 from abc import ABC, abstractmethod
 metti ABC nella signature della classe astratta
 
+nei metodi metti prima:
+    @abstractmethod
+
+
 '''
 
 from abc import ABC, abstractmethod
