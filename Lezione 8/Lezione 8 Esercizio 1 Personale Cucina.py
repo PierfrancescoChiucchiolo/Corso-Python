@@ -6,7 +6,7 @@ metodi: lavora
 classi figlie chef / souschef / cuocolinea:
 chef: specializzazione tipo cucina / prepara menu
 souschef: gestisci inventario / assiste chef
-cuocolinea: cucina piatto in linea di produzione
+cuocolinea: cucina piatto
 
 
 importa
@@ -70,9 +70,6 @@ class Cliente():
         return ordinazione1
     
 
-
-
-
 class Inventario():
     def __init__(self, dizionario = {}):
         self.dizionario = dizionario
@@ -84,7 +81,7 @@ class Inventario():
         if self.check(ingrediente): return self.dizionario.get(ingrediente)
 
     def aggiungi(self, ingrediente, quantita):
-        if self.check(ingrediente):
+        if not self.check(ingrediente):
             newdict = {ingrediente : quantita}
             self.dizionario.update(newdict)
         else:
@@ -96,13 +93,13 @@ class Piatto():
     def __init__(self, nome, tipo, istruzioni, ingredienti, costo):
         self.nome = nome
         self.tipo = tipo
-        self.istruzioni = istruzioni.splitlines()  ## dovrebbe automaticamente mettere la lista di istruzioni in task
-        self.ingredienti = ingredienti.splitlines() ## modellare la lista ingredienti in task funziona e mi ritorna automaticamente la lista
+        self.istruzioni = istruzioni.splitlines()  ## dovrebbe automaticamente mettere la lista di istruzioni
+        self.ingredienti = ingredienti.splitlines() ## ritorna automaticamente la lista ingredienti
         self.costo = costo
 
     
 
-class Personale():
+class Personale(ABC):
     def __init__(self, nome, eta):
         self.nome = nome
         self.eta = eta
@@ -134,6 +131,7 @@ class Chef(Personale):
                 if not ristorante.inventario.check(ingrediente): pass
                 newdict = {piatto.nome : piatto}
                 menu.update(newdict)
+        ristorante.menu.update(menu)
 
 class SousChef(Personale):
     def __init__(self, nome, eta, chef):
@@ -163,7 +161,7 @@ def gestisci_inventario(self, inventario):
 
 ## cuocolinea: cucina piatto in linea di produzione
 class CuocoLinea(Personale):
-    def __init__(self, nome, eta ):
+    def __init__(self, nome, eta):
         super().__init__(nome, eta)
 
 
@@ -198,6 +196,7 @@ print("Mike insegna a Giacomo il ciambellone")
 chef2.impara_piatto(piatto3)
 print(chef2.ricettario)
 
+print(piatto1.ingredienti)
 stringa = "Metti l'acqua a bollire. Cuoci gli spaghetti."
 print(stringa.splitlines())
 
