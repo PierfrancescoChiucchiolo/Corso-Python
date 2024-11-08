@@ -123,6 +123,8 @@ nei metodi metti prima:
 sicurezza = capacità di resistere ad intrusione
 robustezza = capacità di non cadere in errore
 
+cast implicito = 3 + 3.0 (int + float)
+casting esplicito = str(3) = "3"
 
 pip = pip installs packages
 PyPI = python package index, repository di librerie python
@@ -136,8 +138,13 @@ aggiornamento e rimozione di pacchetti
 gestione delle versioni
 integrazioni con ambienti virtuali (venv o virtualvenv)
 
+ndarray: numpy data array
 nunpy supporta array multidimensionali, ha operazioni matriciali e algebriche, trasformazioni di fourier e funzioni statistiche
 integra anche per c/c++ e fortran, con strumenti di ottimizzazione
+
+dtype (data type dell'array stesso) / shape (dimensioni massime dell'array) / arange (funzione per valori sequenziali)
+reshape (cambia shape senza modifiche ai dati) / linspace (ndarray di valori equidistribuiti tra start e finish)
+random (genera distribuzioni randomn, o anche normali e uniformi) / sum, media, deviazione standard (somma, media, deviazione standard)
 
 
 '''
