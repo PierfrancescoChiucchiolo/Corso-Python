@@ -1,12 +1,11 @@
 '''
-pip = pip installs packages
-PyPI = python package index, repository di librerie python
-pip installa da PyPI
+oggi test nel pomeriggio di piccolo videogioco come 3 livelli per spiegare quello che abbiamo imparato
 
-numpy = libreria per calcolo scientifico applicato alla programmazione
-qui abbiamo gli array veri e propri, come struttura dati e non un tipo
 
+sicurezza = capacità di resistere ad intrusione
+robustezza = capacità di non cadere in errore
 '''
+
 
 import numpy as np
 
