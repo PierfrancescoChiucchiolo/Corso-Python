@@ -10,7 +10,7 @@ Stampa la forma dell'array.
 import numpy as np
 
 
-nda1 = np.arange(10, 49)
+nda1 = np.arange(10, 50)
 print(nda1)
 print(nda1.dtype)
 print(nda1.shape)
