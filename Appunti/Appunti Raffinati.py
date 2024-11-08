@@ -120,5 +120,24 @@ metti ABC nella signature della classe astratta
 nei metodi metti prima:
     @abstractmethod
 
+sicurezza = capacità di resistere ad intrusione
+robustezza = capacità di non cadere in errore
+
+
+pip = pip installs packages
+PyPI = python package index, repository di librerie python
+
+numpy = libreria open source per calcolo scientifico applicato alla programmazione, machine learning e analisi dati
+qui abbiamo gli array veri e propri, come struttura dati e non un tipo
+
+installazione pacchetti da fonti multiple (PyPI / GitHub ecc.)
+gestione dipendenze tra i pacchetti
+aggiornamento e rimozione di pacchetti
+gestione delle versioni
+integrazioni con ambienti virtuali (venv o virtualvenv)
+
+nunpy supporta array multidimensionali, ha operazioni matriciali e algebriche, trasformazioni di fourier e funzioni statistiche
+integra anche per c/c++ e fortran, con strumenti di ottimizzazione
+
 
 '''
