@@ -35,4 +35,24 @@ print("Somma degli elementi:", arr2d.sum())
 print("Media degli elementi:", arr2d.mean())
 print("Valore massimo:", arr2d.max())
 print("Indice del valore massimo:", arr2d.argmax())
-print(arr2d[1][3])
+
+## slicing usa range(start incluso, end escluso, step):
+
+arr_2d = np.array([[1, 2, 3, 4],
+                   [5, 6, 7, 8],
+                   [9, 10, 11, 12]])
+# Slicing sulle righe con righe da 1 a 3 escluso
+print(arr_2d[1:3])  # Output: [[ 5  6  7  8]
+                   #          [ 9 10 11 12]]
+# Slicing sulle colonne da 1 a 3
+print(arr_2d[:, 1:3])  # Output: [[ 2  3]
+                       #          [ 6  7]
+                       #          [10 11]]
+# Slicing misto: righe da 1 in poi, colonne da 1 a 3 escluso
+print(arr_2d[1:, 1:3])  # Output: [[ 6  7]
+                        #          [10 11]]
+
+
+
+# fancy indexing: elementi arbitrari anche non contigui / ritorna una copia / usa indici interi
+# slicing: solo selezioni rettangolari / ritorna una view / indici di inizio, fine, step

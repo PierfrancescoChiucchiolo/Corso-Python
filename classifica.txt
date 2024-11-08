@@ -1,0 +1,4 @@
+Giocatore: zorro punteggio: 4.0 
+Giocatore: ciao punteggio: 2.0 
+Giocatore: barabba punteggio: 2.0 
+Giocatore: 123 punteggio: 1.0 

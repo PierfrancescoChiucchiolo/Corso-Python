@@ -38,3 +38,20 @@ nda2 = arr.astype(float)
 print(nda2)
 print(nda2.dtype)
 print(nda2.shape)
+
+
+## slicing uses a range-like form (start included, stop excluded, step)
+
+arr_2d = np.array([[1, 2, 3, 4],
+                   [5, 6, 7, 8],
+                   [9, 10, 11, 12]])
+# Slicing rows from 1 to 3 excluded
+print(arr_2d[1:3])  # Output: [[ 5  6  7  8]
+                   #          [ 9 10 11 12]]
+# Slicing columns from 1 to 3 excluded
+print(arr_2d[:, 1:3])  # Output: [[ 2  3]
+                       #          [ 6  7]
+                       #          [10 11]]
+# Slicing rows 1 onwards, columns from 1 to 3 excluded
+print(arr_2d[1:, 1:3])  # Output: [[ 6  7]
+                        #          [10 11]]
