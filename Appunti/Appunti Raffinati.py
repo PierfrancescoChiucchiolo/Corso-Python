@@ -147,4 +147,119 @@ reshape (cambia shape senza modifiche ai dati) / linspace (ndarray di valori equ
 random (genera distribuzioni randomn, o anche normali e uniformi) / sum, media, deviazione standard (somma, media, deviazione standard)
 
 
+
+
+iPython è la shell interattiva di python, viene chiamata anche REPL (read eval print loop)
+supporto per autocompletamento usando il tasto tab per scorrere i suggerimenti
+storia dei comandi: freccia su/giu scorre gli ultimi comandi inseriti
+rich output: si possono visualizzare direttamente nella shell grafici e tabelle
+supporto OS: si possono richiamare comandi del sistema operativo con ! seguito dai comandi
+estensioni: supporta l'utilizzo di plugin
+
+spyder è un IDE (ambiente di sviluppo integrato) per python
+editor di codice avanzato / console interattiva / esploratore di variabili (step by step) / debugger step by step / esplora risorse
+
+
+
+I/O:
+lettura: si usa open con 2 parametri, path e modalità
+(read "r" / write "w" / append only "a" / read and write "w+)
+
+file = open("PATH DEL FILE.ESTENSIONE", "r")
+contenuto = file.read() legge tutto il file
+riga = file.readline() legge di riga in riga
+testo = file.readlines()
+
+scrittura: si usa sul file aperto con "w" il comando file.write("stringa")
+file = open("PATH DEL FILE.ESTENSIONE", "w")
+file.write("STRINGA DA SCRIVERE NEL NUOVO FILE")
+file.writelines("STRINGA1", "STRINGA2", ...)
+file.writelines(L) for L = [str1, str2, str3]
+per l'andata a capo usa "stringa \n" alla fine per carattere di endline
+
+chiusura: è importante chiudere il file in modo da liberare le risorse impiegate per aprire il file e la memoria assegnata ad esso
+file.close()
+
+with open: funzione che automaticamente chiude il file finito il blocco
+with open("PATH DEL FILE.ESTENSIONE", "w") as file:
+    contenuto = file.read()
+    ## codice
+## qui la variabile file viene liberata
+
+
+
+
+
+lambda / funzioni anonime (inline functions)
+non usano def, ma bensì lambda, sono utili soprattutto quando abbiamo piccole funzioni magari da applicare in map/filter/reduce
+sono limitate ad una singola linea di codice
+square = lambda x**2
+result = square(5)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even = list(filter(lambda x : x % 2 == 0, numbers))
+print(even)
+
+filter(funzione di filtro, sequenza)
+restituisce un iteratore, prendendo gli elementi da sequenza, se true vanno nella variabile
+
+
+
+filter:
+iterabile_filtrato = filter(espressione booleana, iterabile_non_filtrato)
+
+map:
+iterabile_mappato = map(funzione, iterabile_non_mappato)
+
+
+
+is_even = lambda x % 2 == 0
+even = list(filter(is_even, numbers))
+
+sicurezza:
+è importante aggiornare i softare, sanificare gli input utente per prevenire l'iniezione di codice
+usare input() / rawinput() / escape() per input da tastiera
+bcrypt o argon2 sono algoritmi di hashing sicuri per criptare password (python offre libreria cryptography)
+usare 2FA laddove necessario
+considerare l'affidabilità delle librerie di terze parti, quanto sono diffuse e supportate, aggiornate
+logging e monitoraggio del codice e delle risorse
+usare pip-check per controllare le vulnerabilità delle librerie
+fare audit del codice con strumenti come bandit o pylint
+usare django o flask come framework che resistono a  XSS cross site scripting / CSRF cross site request forgery / iniezione di codice
+protezione da ddos come firewall o sistemi 3rd party
+limitare accesso a file e socket solo a processi autorizzati
+esegui penetration tests o vulnerability tests 
+
+co-authoring: collaborazione con altri utenti
+usare branches dalla branch master e poi fare merge
+pull request: richiesta di implementare un branch nel master
+CI continuous integration: strumenti come jenkins o travis ci per automatizzare i check di analisi e rilascio
+convenzioni: assicurarsi di mantenere un codice coerente
+
+
+monitoring: monitoraggio delle prestazioni
+risorse di sistema: psutil per moonitorare cpu/memoria/disco/rete
+prestazioni dell'applicazione: time e datetime per rilevare ritardi ed inefficienze
+monitoraggio dei log: contengono errori, eccezioni e anomalie
+metriche personalizzate: Prometeus o StatD per ricevere statistiche su numero richieste elaborate, tempo di risposta
+errori: Sentry o Rollbar tengono traccia degli errori dell'applicazione
+API: Swagger o OpenAPI generano documentazione e log sulle API come numero richieste elaborate, tempo di risposta
+infrastruttura: se distribuita o su un cloud usiamo Docker per monitorare i cluster 
+
+
+
+
+
+
+errori:
+try and catch (qui try except)
+try: riga di codice
+except (opzionale tipo di errore, come ValueError, posso metterne in sequenza pr ogni errore): se errore riga di codice
+
+except Value error as e, print(e)
+
+
+csv comma seperated values, è in realtà un txt con formattazione extra
+è un'alternativa ad un file excel, excel per standard trasforma il separatore da "," a ";"
+
 '''
