@@ -6,7 +6,7 @@ Create un file.txt con uno script python e testo preso da https://it.lipsum.com/
 averlo fatto scrivete un programma che legge il documento e ci restituisce il numero di parole, righe e caratteri.
 
 
-## paragrafi 5 / 440 parole /
+## paragrafi 5 / 440 parole
 
 
 '''

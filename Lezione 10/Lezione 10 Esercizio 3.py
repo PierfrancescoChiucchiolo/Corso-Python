@@ -10,7 +10,7 @@ giovanni
 giacomo
 1, 2, 1, 1, 2
 
-
+l'utente deve poter aggiungere/rimuovere/aggiornare voti e alunni, stampare ogni alunno e mewdia voti
 
 '''
 
@@ -41,3 +41,16 @@ def write_text_db(dizionario):
 
 
 write_text_db(diz)
+
+
+def alunni_media(dizionario):
+    for key in dizionario:
+        stringa = "lo studente : " + key
+        lista_voti = dizionario.get(key).split(",")
+        media = 0
+        for voto in lista_voti:
+            media += int(voto)/len(lista_voti)
+        stringa += " ha una media voti pari a: " + str(media)
+        print(stringa)
+
+alunni_media(diz)
