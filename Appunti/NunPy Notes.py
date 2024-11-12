@@ -5,6 +5,10 @@
 
 
 import numpy as np
+import random as random
+from scipy import stats
+
+
 
 # one dimensional ndarray
 arr = np.array([1, 2, 3, 4, 5])
@@ -55,3 +59,21 @@ print(arr_2d[:, 1:3])  # Output: [[ 2  3]
 # Slicing rows 1 onwards, columns from 1 to 3 excluded
 print(arr_2d[1:, 1:3])  # Output: [[ 6  7]
                         #          [10 11]]
+
+
+
+
+def rand_matrix(x, y, a, b):
+    columns = []
+    for i in range(0, x):
+        rows = []
+        for j in range(0, y):
+            intero = random.randint(a, b)
+            rows.append(intero)
+        columns.append(rows)
+
+    array = np.array(columns)
+    return array
+
+randarray = np.random.randint(0, 100, (3, 3))
+print(randarray)
