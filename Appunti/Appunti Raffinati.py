@@ -168,7 +168,6 @@ lettura: si usa open con 2 parametri, path e modalità
 file = open("PATH DEL FILE.ESTENSIONE", "r")
 contenuto = file.read() legge tutto il file
 riga = file.readline() legge di riga in riga
-testo = file.readlines()
 
 scrittura: si usa sul file aperto con "w" il comando file.write("stringa")
 file = open("PATH DEL FILE.ESTENSIONE", "w")
@@ -176,6 +175,8 @@ file.write("STRINGA DA SCRIVERE NEL NUOVO FILE")
 file.writelines("STRINGA1", "STRINGA2", ...)
 file.writelines(L) for L = [str1, str2, str3]
 per l'andata a capo usa "stringa \n" alla fine per carattere di endline
+
+
 
 chiusura: è importante chiudere il file in modo da liberare le risorse impiegate per aprire il file e la memoria assegnata ad esso
 file.close()
