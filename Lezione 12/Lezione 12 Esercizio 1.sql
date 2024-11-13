@@ -22,3 +22,20 @@ create or replace view showlanguages as
 select country.Name, country.Code, countrylanguage.Language, countrylanguage.Percentage
 from country join countrylanguage on country.Code = countrylanguage.CountryCode
 order by country.Name asc, countrylanguage.Percentage desc
+
+
+--Create una vista chiamata PopulationByContinent che mostri il nome del continente e la popolazione totale per ciascun continente.
+
+create or replace view populationbycontintent as
+select country.Continent, sum(country.Population)
+from country
+group by country.Continent
+
+
+-- Create una vista chiamata CapitalCities che mostri il nome dello stato, il nome della sua capitale e la lingua ufficiale
+
+create or replace view capitalcities as
+select country.Name as "Country", city.Name as "City", countrylanguage.Language as "Language"
+from (city join country on city.CountryCode = country.Code)
+join countrylanguage on country.Code = countrylanguage.CountryCode
+where country.Capital = city.ID and countrylanguage.IsOfficial = true

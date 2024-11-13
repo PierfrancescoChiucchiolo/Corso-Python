@@ -21,5 +21,8 @@ viste = tabelle virtuali basate su queries
 create or replace view xxx as query
 
 
+pip install mysql-connector-python
+
+
 
 '''
