@@ -69,3 +69,14 @@ import requests
 response = requests.get("www.google.it")
 
 
+risposta = requests.get("https://api.open-meteo.com/v1/forecast?latitude=45.5921&longitude=9.5734&hourly=temperature_2m,precipitation_probability")
+"""
+print(risposta.json()['latitude'])
+"""
+
+risposta_text = risposta.text
+
+risposta_json = json.loads(risposta_text)
+
+print(risposta_json['latitude'])
+
