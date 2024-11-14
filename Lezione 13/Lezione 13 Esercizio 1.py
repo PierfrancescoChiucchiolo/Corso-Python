@@ -14,8 +14,8 @@ probabili precipitazioni.
 import requests
 import json
 
-link1 = "https://open-meteo.com/en/docs"
-link1extended = "https://open-meteo.com/en/docs#latitude=10&longitude=11&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m&forecast_days=3"
+## link1 = "https://open-meteo.com/en/docs"
+## link1extended = "https://open-meteo.com/en/docs#latitude=10&longitude=11&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m&forecast_days=3"
 
 api_link_start = "https://api.open-meteo.com/v1/forecast?daily=temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max&"
 api_link_1 = "latitude="
