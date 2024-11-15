@@ -263,4 +263,13 @@ except Value error as e, print(e)
 csv comma seperated values, è in realtà un txt con formattazione extra
 è un'alternativa ad un file excel, excel per standard trasforma il separatore da "," a ";"
 
+
+
+from scipy import stats
+
+## lascia valori originari senza sovrascrivere ndarray di input
+moda = stats.mode(array_50, keepdims = True).mode[0]
+print(moda)
+
+
 '''
