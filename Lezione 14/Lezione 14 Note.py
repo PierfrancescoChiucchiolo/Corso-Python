@@ -4,6 +4,12 @@ save to json
 with open('mydata.json', 'w') as f:
     json.dump(team, f)
 
+    
+
+
+selenium è un package python che si struttura similarmente ad html con i tag < body />
+scraping è una funzione che scarica massivamente i dati
+pip install selenium
 '''
 
 import requests
