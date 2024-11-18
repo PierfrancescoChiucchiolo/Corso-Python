@@ -29,24 +29,28 @@ import pandas as pd
 import numpy as np
 import random
 
-pd.DataFrame({"food":["bacon","pulled pork","bacon","pastrami","corned beef", "bacon", "pastrami", "honey ham", "nova lox"], "ounces":[4,3,12,6,7.5,8,3,5,6]})
+## non funziona ovviamente, oggi sono abbastanza influenzato e non riesco a produrre
 
-meat_to_animal = {"bacon":"pig", "pulled pork":"pig", "pastrami":"cow", "corned beef":"cow", "honey ham":"pig", "nova lox":"salmon"}
-
-
-data = pd.DataFrame({"food":["bacon","pulled pork","bacon","pastrami","corned beef", "bacon", "pastrami", "honey ham", "nova lox"], "ounces":[4,3,12,6,7.5,8,3,5,6]})
-
-
-serie4 = pd.Series([1.,-999.,2.,-999.,-1000.,3.])
-
-serie5 = [serie4 > 3] = np.nan
-
-
-df = pd.DataFrame({"key1":["a", "a", None, "b", "b", "a", None],
-"key2" : pd.Series([1, 2, 1, 2, 1, None, 1], dtype="Int64"),
-"data1" : np.random.standard_normal(7),
-"data2" : np.random.standard_normal(7)})
+data = {
+    'Prodotto': ['Alici', 'Bombi', 'Carletti', 'Dentellini', 'Eppelletti', 'Farfallini'],
+    'Quantita': [12, 23, 49, 18, 12, 32],
+    'Prezzo Unita' : [1, 2, 5, 3, 4, 2],
+    'Città': ['Roma', 'Milano', 'Napoli', 'Firenze', 'Bologna', 'Torino']
+}
+df = pd.DataFrame(data)
+print(df)
 
 
 
+np.random.seed(0)
+quantita = random.randint(1, 50, size = 20)
+citta = np.random.choice(citta, size = 20)
 
+
+df["Totale vendite"] = df["Quantita"] * df["Prezzo Unita"]
+
+df.groupby("Prodotto")["Totale Vendite"].sum().reset_index
+
+df.groupby("Prodotto")["Totale Vendite"].sum().idxmax()
+
+df.sort_values(by = "Totale Vendite", ascending = False)
