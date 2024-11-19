@@ -32,3 +32,12 @@ media_stipendio = df["Salary"].mean()
 print(media_stipendio)
 dipendenti_media_stipendio = df.loc[df["Salary"] >= media_stipendio, ["Name", "Salary"]]
 print(dipendenti_media_stipendio)
+
+df["Rank Salary Department"] = df.groupby("Department")["Salary"].rank()
+dipendenti_department_rank = df.sort_values(by = "Department", ascending = False)
+print(dipendenti_department_rank)
+
+df["Rank Salary Absolute"] = df["Salary"].rank()
+dipendenti_salary_rank = df.sort_values(by = "Rank Salary Absolute", ascending = False)
+print(dipendenti_department_rank)
+
