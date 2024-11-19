@@ -11,7 +11,7 @@ averlo fatto scrivete un programma che legge il documento e ci restituisce il nu
 
 '''
 
-file = open("lorem_ipsum.txt", "r", encoding = "utf-8")
+file = open("Lezione 10/lorem_ipsum.txt", "r", encoding = "utf-8")
 
 testo = file.readlines()
 print("numero di righe = " + str(len(testo)) )

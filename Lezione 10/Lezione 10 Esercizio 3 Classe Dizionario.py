@@ -27,11 +27,11 @@ def read_text_db(filepath):
     return dizionario
 
 
-diz = read_text_db("text_db.txt")
+diz = read_text_db("Lezione 10/text_db.txt")
 print(diz)
 
 def write_text_db(dizionario):
-    with open("text_db2.txt", "w", encoding = "utf-8") as file:
+    with open("Lezione 10/text_db2.txt", "w", encoding = "utf-8") as file:
         for key in dizionario.keys():
             stringa1 = key + "\n"
             stringa2 = dizionario.get(key) + "\n"
