@@ -272,4 +272,66 @@ moda = stats.mode(array_50, keepdims = True).mode[0]
 print(moda)
 
 
+
+import mysql.connector as sql
+
+mydb = sql.connect(
+    host = "localhost",
+    user = "root",
+    password = "root",
+    port = 3306,
+    database = "pythonmysql"
+)
+
+## ci serve un cursore per navigare il database
+mycursor = mydb.cursor()
+
+
+query = "create table utenti (nome varchar(50), indirizzo varchar(50))"
+mycursor.execute(query)
+
+
+## usiamo %s per resistere ad sql injection
+query = "insert into utenti (nome, indirizzo) values(%s, %s)"
+valori = ("Gianni", "Via Morandi")
+mycursor.execute(query, valori)
+
+mydb.commit()
+
+
+
+import json
+
+## vuole per forza ' esterno ' e " interno "
+filejson = '{"chiave1" : "valore1", "chiave2" : "valore2"}'
+filejsonconvertito = json.loads(filejson)
+fileestratto = json.dumps(filejsonconvertito, indent = 4)
+
+
+## pip install requests
+import requests
+
+risposta = requests.get("https://api.open-meteo.com/v1/forecast?latitude=45.5921&longitude=9.5734&hourly=temperature_2m,precipitation_probability")
+print(risposta.json()['latitude'])
+
+
+risposta_text = risposta.text
+
+risposta_json = json.loads(risposta_text)
+
+print(risposta_json['latitude'])
+
+
+
+## scrivi l'intero pokédex
+with open("Pokédex.json", "w", encoding = "utf-8") as f:
+    json.dump(pokejson, f, indent = 4)
+
+
+## leggi l'intero pokédex
+loaded_data = 0
+with open("Pokédex.json", "r") as file:
+    loaded_data = json.load(file)
+
+
 '''
