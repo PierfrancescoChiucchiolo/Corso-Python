@@ -61,7 +61,7 @@ print(arr_2d[1:, 1:3])  # Output: [[ 6  7]
                         #          [10 11]]
 
 
-
+## linshape si usa come arange ma per generare delle serie più complesse
 
 def rand_matrix(x, y, a, b):
     columns = []
