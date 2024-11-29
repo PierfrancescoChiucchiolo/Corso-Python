@@ -333,5 +333,5 @@ loaded_data = 0
 with open("Pokédex.json", "r") as file:
     loaded_data = json.load(file)
 
-
+x
 '''
